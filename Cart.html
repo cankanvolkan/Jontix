@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS_File/BuyPage.css">
+    <link rel="stylesheet" href="CSS_File/Cart.css">
+    <link rel="stylesheet" href="CSS_File/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="JS_File/ShoppingCart.js"></script> 
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script> <!-- Burası PayPal ID'si, elimde geçince eklenmeli. -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+    <style>
+        .navbar #MenuItems{
+            background-color: #f8f8f8;
+        }
+        .footer{
+             background: #000;
+             color: #8a8a8a;
+             font-size: 14px;
+             padding: 60px 0 25px;
+             transform: translateY(700px);
+        }
+        h1{
+            transform: translateX(160px);
+        }
+        #paypal-button-container img{
+            transform: translateX(180px);
+            cursor: pointer;
+        }
+    </style>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/Logo2.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Products.html">Products</a></li>
+                    <li><a href="About-Us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            <img src="images/cart.png" width="30px" height="30px" class="cart-icon" onclick="toggleCart()">
+        </div>
+
+        <!-- Shopping Cart -->
+
+        <div class="sidebar-cart">
+            <div class="cart-header">         
+                <h3>Shopping Cart</h3>
+                <button class="close-btn" onclick="closeCart()">X</button>
+            </div>
+            <div class="cart-content">
+                
+                <!-- Cart items will be dynamically added here using JavaScript -->
+
+            </div><div id="cart_items-container">
+
+            <!-- Sepet içeriği buraya eklenecek -->
+
+        </div>
+            <div class="cart_total_container">
+                <p>Total:</p>
+                <span class="cart_total">$0.00</span>
+            </div>
+            <button id="clearCartButton" class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+        </div>
+
+        <!-- Added Products -->
+
+        <div class="added-products-container">
+            <h2>You can see the products you added by clicking on the cart.</h2>
+            <div id="addedProducts"></div>
+        </div>
+
+        <!-- Payment Form -->
+        
+        <div class="payment-container">
+            <h2>Payment Details</h2>
+            <form id="paymentForm" action="admin/Payment_Process.php" method="post" onsubmit="return validateForm()">
+                <div id="paypal-button-container">                  
+                <img src="images/logo-paypal.png" alt="PayPal">
+                </div>
+                <h1>Other Metheod</h1>           
+                <label for="cardType">Card Type:</label>
+                <select name="cardType" id="cardType">
+                    <option value="visa">Visa</option>
+                    <option value="mastercard">MasterCard</option>
+                    <option value="amex">American Express</option>
+                    <!-- Add more card types as needed -->
+                </select>
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" pattern="\d{16}" required>
+                <label for="expiryDate">Expiry Date (MM/YYYY):</label>
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" inputmode="numeric" pattern="^(0[1-9]|1[0-2])\/[2-9][0-9]{3}$" required>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" inputmode="numeric" pattern="\d{3,4}" required>
+                <label for="cardHolderName">Cardholder Name:</label>
+                <input type="text" id="cardHolderName" name="cardHolderName" placeholder="Enter Card Name" pattern="[A-Za-z\s]+" required>
+                <label for="zipcode">Zip Code:</label>
+                <input type="text" id="zipcode" name="zipcode" placeholder="Enter Zip Code" inputmode="numeric" pattern="\d{5}" required>         
+                <label for="billingAddress">Address:</label>
+                <input type="text" id="billingAddress" name="billingAddress" placeholder="Enter Your Address" required>
+                <button type="submit" onclick="processPayment">Pay Now</button>
+            </form>
+
+            <!-- Payment Form -->
+
+        </div>
+        </div>   
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Our Location</h3>
+                    <a href="https://maps.app.goo.gl/hVYcjsDwhXhWnwVw5" target="_blank"><p><i class="fa-solid fa-location-dot">&nbsp;</i> Karl-Marx-Straße 134, 12043 Berlin, Germany</p></a>
+                    <div class="app-logo"></div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/Logo1.png" alt="Jontix Logo">
+                    <p>The address for everyone who is looking for the difference</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Refund Policy</li>
+                        <li>Join a Partner</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <div class="Links">
+                        <ul>
+                            <li><a href="https://www.instagram.com/jontix.de?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram</p></a></li>
+                            <li><a href="https://www.tiktok.com/@jontix.com?is_from_webapp=1&sender_device=pc" target="_blank"><p><i class="fa-brands fa-tiktok"></i> TikTok</p></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="Copyright"> Copyright 2024 - Jontix</p>
+        </div>
+    </div>
+</div>
+        </div>  
+    <div class="container">
+    </div>
+
+    <!-- sayfa alt kısmı ve script etiketi -->
+ 
+    <script>
+        // Sayfa yüklendiğinde sepeti göster
+
+        window.addEventListener('load', function () {
+
+            // Sepeti göster
+
+            displayCartItems();
+        });
+    </script>
+    <script>function clearCart() {
+
+        // Sepet içeriğini temizle
+
+        var cartItemsContainer = document.getElementById("cart_items-container");
+        cartItemsContainer.innerHTML = "";
+    
+        // Toplam tutarı sıfırla
+
+        var cartTotalElement = document.querySelector(".cart_total");
+        cartTotalElement.textContent = "$0.00";
+    
+        // Eklenen ürünleri gösteren bölümü temizle
+     
+        var addedProductsContainer = document.getElementById("addedProducts");
+        addedProductsContainer.innerHTML = "";
+    }</script>
+     <script>
+        window.addEventListener('load', function () {
+            displayCartItems();
+        });
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '1.00' // Ödeme miktarını burada belirtin
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Payment approved. Details: ' + JSON.stringify(details));
+                    // Ödeme onaylandığında yapılacak işlemleri buraya ekleyin
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+    <script>
+        $(document).ready(function () {
+            var didScroll;
+            var lastScrollTop = 0;
+            var delta = 5;
+            var navbarHeight = $('.header').outerHeight();
+
+            $(window).scroll(function (event) {
+                didScroll = true;
+            });
+            setInterval(function () {
+                if (didScroll) {
+                    hasScrolled();
+                    didScroll = false;
+                }
+            }, 250);
+            function hasScrolled() {
+                var st = $(this).scrollTop();
+
+                if (Math.abs(lastScrollTop - st) <= delta)
+                    return;
+
+                if (st > lastScrollTop && st > navbarHeight) {
+                    $('.header').removeClass('header-down').addClass('header-up');
+                } else {
+                    if (st + $(window).height() < $(document).height()) {
+                        $('.header').removeClass('header-up').addClass('header-down');
+                    }
+                }
+                lastScrollTop = st;
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            var header = $(".header");
+        
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if (scroll > 50) {
+                    header.addClass("header-shrink");
+                } else {
+                    header.removeClass("header-shrink");
+                }
+            });
+        });
+        </script>
+         <script>
+            let prevScrollPos = window.pageYOffset;
+            window.onscroll = function() {
+                let currentScrollPos = window.pageYOffset;
+                if (prevScrollPos > currentScrollPos) {
+                    document.querySelector(".header").classList.remove("hidden");
+                } else {
+                    document.querySelector(".header").classList.add("hidden");
+                }
+                prevScrollPos = currentScrollPos;
+            }
+        </script>
+        <script>
+          let lastScrollTop = 0;
+        const header = document.getElementById("header");
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this,
+                    args = arguments;
+                const later = function() {
+                    timeout = null;
+                    func.apply(context, args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        function hideHeaderOnScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                header.classList.add("hidden");
+            } else {
+                header.classList.remove("hidden");
+            }
+            lastScrollTop = scrollTop;
+        }
+        window.addEventListener("scroll", debounce(hideHeaderOnScroll, 50));
+        </script>
+        <script>
+            // addToCart fonksiyonu içinde güncelleme
+function addToCart(name, price, image) {
+    // ... (mevcut kod) 
+
+    // Sepeti göster
+    displayCartItems();
+
+    // Sepet verilerini yerel depolamada güncelle
+    saveCartToStorage();
+}
+
+// processPayment fonksiyonu içinde yerel depolamadaki sepet verilerini temizleme
+function processPayment() {
+    
+    // Ödeme işlemini burada simüle ediyoruz.
+    // Gerçek bir entegrasyon yapacaksanız burada ilgili servis sağlayıcısının fonksiyonlarını kullanmanız gerekecek.
+
+    document.getElementById("paymentForm").submit();
+
+    // Sepeti temizle
+    clearCart();
+
+    // Sepet verilerini yerel depolamada temizle
+    localStorage.removeItem(CART_STORAGE_KEY);
+
+    document.getElementById("cardType").value = "";
+    document.getElementById("cardNumber").value = "";
+    document.getElementById("expiryDate").value = "";
+    document.getElementById("cvv").value = "";
+    document.getElementById("cardHolderName").value = "";
+    document.getElementById("zipcode").value = "";
+    document.getElementById("billingAddress").value = "";
+    
+    // Bir süre bekleyin ve ardından sayfayı yenileyin
+
+    setTimeout(function() {
+    location.reload();
+}, 1000);
+}
+    </script> 
+    <script>
+        function validateForm() {
+            // JavaScript ile özel doğrulama yapabilirsiniz.
+            // Örneğin, kartın son kullanma tarihini kontrol etmek gibi.
+            if (!luhnCheck(document.getElementById('cardNumber').value)) {
+                alert("Invalid card number.");
+                return false;
+            }   
+            return true; // Eğer her şey doğru ise true dönebilirsiniz.
+        }   
+        function luhnCheck(cardNumber) {
+            // Luhn algoritması ile kart numarasının geçerliliğini kontrol etme
+            let sum = 0;
+            let isEven = false;  
+            for (let i = cardNumber.length - 1; i >= 0; i--) {
+                let digit = parseInt(cardNumber.charAt(i), 10); 
+                if (isEven) {
+                    digit *= 2;
+                    if (digit > 9) {
+                        digit -= 9;
+                    }
+                }   
+                sum += digit;
+                isEven = !isEven;
+            } 
+            return sum % 10 === 0;
+        }
+    </script>
+</body>
+</html>

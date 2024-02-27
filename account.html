@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="=UTF-8">
+        <meta name="viewport" content="width = device-width, initial scale = 1.0">
+        <title> Konto - Jontix</title>
+        <link rel="stylesheet" href="CSS_File/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="JS_File/BuyPage.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    </head>
+    <body>  
+        <style>
+            .sidebar-cart {
+        z-index: 5; /* Set a higher z-index for the shopping cart */
+        }
+        .container {
+            width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+        }
+       .footer{
+         transform: translateY(20px);
+       }
+       .account-page{
+                margin-bottom: -20px;
+            }
+            .footer-col-1
+            {
+                transform: translateX(100px);
+            }
+    </style>
+        </style>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/Logo2.png" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li> 
+                        <li><a href="Products.html">Products</a></li>
+                        <li><a href="About-Us.html">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+                <style>
+                    .cart-icon{
+                        cursor: pointer;
+                    }
+                </style>
+                <img src="images/cart.png" width="30px" height="30px" class="cart-icon" onclick="toggleCart()">
+</div>
+<style>
+    
+    @media only screen and (max-width: 768px) {
+    .menu-icon {
+        float: right;
+        margin-right: 20px;
+        transform: translateY(-58px);
+    }
+}
+    @media only screen and (max-width: 768px) {
+    .cart-icon {
+        transform: translateX(-20px);
+    }
+}
+
+</style>
+                <img src="images/menu.png" class="menu-icon" onclick= "menutoggle()">
+            </div>
+    
+            <!-- Shopping Cart -->
+    
+            <div class="sidebar-cart">
+                <div class="cart-header">         
+                    <h3>Shopping Cart</h3>
+                    <button class="close-btn" onclick="closeCart()">X</button>
+                </div>
+                <div class="cart-content">
+                    
+                    <!-- Cart items will be dynamically added here using JavaScript -->
+    
+                </div> <div id="cart_items-container">
+    
+                <!-- Sepet içeriği buraya eklenecek -->
+    
+            </div>
+                <div class="cart_total_container">
+                    <p>Total:</p>
+                    <span class="cart_total">$0.00</span>
+                </div>
+                <button onclick="checkout()">Go Checkout</button>
+                <button id="clearCartButton" class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+            </div>
+
+    <!--------- Account Page ------------->
+
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/fashion-logo-design-removebg-preview.png" width="60%" class="fashion-logo">
+                </div>
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="Indicator">
+                        </div>
+                        <form id="LoginForm">
+                            <input type="text" placeholder="Username">
+                            <input type="password" placeholder="Password">
+                            <button type="submit"class="btn">Login</button>
+                            <a href="">Forget Password?</a>
+                        </form>
+                        <form id="RegForm">
+                            <input type="text" placeholder="Username">
+                            <input type="email" placeholder="Email">
+                            <input type="password"placeholder="Password">
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------- Footer ------------>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                     <h3>Our Location</h3>
+                      <a href="https://maps.app.goo.gl/hVYcjsDwhXhWnwVw5" target="_blank"><p><i class="fa-solid fa-location-dot">&nbsp;</i> Karl-Marx-Straße 134, 12043 Berlin, Germany</p></a>
+                    <div class="app-logo">
+                    </div> 
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/Logo1.png">
+                    <p>The address for everyone who is looking for the difference</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <ul>Refund Policy</ul>
+                        <ul>Join a Partner</ul>
+                    </ul>
+                </div>
+                <div class="footer-col-4">      
+                    <h3>Follow us</h3>
+                    <div class="Links">
+                        <ul>
+                            <li><a href="https://www.instagram.com/jontix.de?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram</p></a></li>
+                            <li><a href="https://www.tiktok.com/@jontix.com?is_from_webapp=1&sender_device=pc" target="_blank"><p><i class="fa-brands fa-tiktok"></i> TikTok</p></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="Copyright"> Copyright 2024 - Jontix</p>
+                </div>
+            </div>
+        </div>
+        
+    <!-------------  Js for toggle menu ------------>
+
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px"
+            }
+        else 
+            {
+                MenuItems.style.maxHeight = "0px"
+            }
+        }
+    </script>
+
+    <!--------- Js For Toggle Form -------------->
+
+    <script>
+        var LoginForm =document.getElementById("LoginForm");
+        var RegForm =document.getElementById("RegForm");
+        var Indicator =document.getElementById("Indicator");
+            function register(){
+                RegForm.style.transform = "translateX(0px)"
+                LoginForm.style.transform = "translateX(0px)"
+                Indicator.style.transform = "translateX(100px)"
+
+        }
+        function login(){
+                RegForm.style.transform = "translateX(300px)"
+                LoginForm.style.transform = "translateX(300px)"
+                Indicator.style.transform = "translateX(0px)"
+        }
+    </script>
+    <!-- sayfa alt kısmı ve script etiketi -->
+
+    <script src="ShoppingCart.js"></script>
+    <script>
+        // Sayfa yüklendiğinde sepeti göster
+
+        window.addEventListener('load', function () {
+
+            // Sepeti göster
+
+            displayCartItems();
+        });
+    </script>
+    <script>function clearCart() {
+
+        // Sepet içeriğini temizle
+
+        var cartItemsContainer = document.getElementById("cart_items-container");
+        cartItemsContainer.innerHTML = "";
+    
+        // Toplam tutarı sıfırla
+
+        var cartTotalElement = document.querySelector(".cart_total");
+        cartTotalElement.textContent = "$0.00";
+    
+        // Eklenen ürünleri gösteren bölümü temizle
+        
+        var addedProductsContainer = document.getElementById("addedProducts");
+        addedProductsContainer.innerHTML = "";
+    }</script>
+    </body>
+    </html>

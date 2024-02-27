@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS_File/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="JS_File/ShoppingCart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Contact</title>
+</head>
+<body>
+    <style>
+         .cart-icon{
+              cursor: pointer;
+         }
+    </style>
+    <div class="header">
+        <div class="sidebar-cart">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="close-btn" onclick="closeCart()">×</button>
+            </div>
+            <div class="cart-content" id="cart-content">
+            </div>
+            <div class="cart_total_container">
+                <p>Total:</p>
+                <span class="cart_total">$0.00</span>
+                
+            </div><button onclick="checkout()">Go Checkout</button>
+            <button id="clearCartButton" class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+        </div>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/Logo2.png" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                    <li><a href="index.html">Home</a></li> 
+                    <li><a href="Products.html">Products</a></li>
+                    <li><a href="About-Us.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+                <img src="images/cart.png" width="30px" height="30px" class="cart-icon" onclick="toggleCart()">
+</div>
+                <img src="images/menu.png" class="menu-icon" 
+                onclick= "menutoggle()">
+            </div>
+</div>
+<!---------- Footer ------------>
+<style>
+    .footer {
+    /* Gerekirse, position değerini ayarlayabilirsiniz. Örneğin: */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000; /* Footer arkaplan rengi, ihtiyaca göre değiştirilebilir */
+    padding: 20px; /* İhtiyaca göre ayarlayabilirsiniz */
+    color: #333; /* Footer metin rengi, ihtiyaca göre değiştirilebilir */
+}
+</style>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                 <h3>Our Location</h3>
+                  <a href="https://maps.app.goo.gl/hVYcjsDwhXhWnwVw5" target="_blank"><p><i class="fa-solid fa-location-dot">&nbsp;</i> Karl-Marx-Straße 134, 12043 Berlin, Germany</p></a>
+                <div class="app-logo">
+                </div> 
+            </div>
+            <div class="footer-col-2">
+                <img src="images/Logo1.png">
+                <p>The address for everyone who is looking for the difference</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <ul>Refund Policy</ul>
+                    <ul>Join a Partner</ul>
+                </ul>
+            </div>
+            <div class="footer-col-4">      
+                <h3>Follow us</h3>
+                <div class="Links">
+                    <ul>
+                        <li><a href="https://www.instagram.com/jontix.de?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram</p></a></li>
+                        <li><a href="https://www.tiktok.com/@jontix.com?is_from_webapp=1&sender_device=pc" target="_blank"><p><i class="fa-brands fa-tiktok"></i> TikTok</p></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="Copyright"> Copyright 2024 - Jontix</p>
+            </div>
+        </div>
+    </div>
+
+<!-------------  Js for toggle menu ------------>
+
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+    MenuItems.style.maxHeight = "0px";
+    function menutoggle(){
+        if(MenuItems.style.maxHeight == "0px")
+        {
+            MenuItems.style.maxHeight = "200px"
+        }
+    else 
+        {
+            MenuItems.style.maxHeight = "0px"
+        }
+    }
+</script>
+</body>
+</html>

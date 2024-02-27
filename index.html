@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Jontix | Geschäft </title>
+        <link rel="stylesheet" href="CSS_File/style.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="JS_File/ShoppingCart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    </head>
+    <body>   
+        <style>
+            .menu-icon{
+    margin-left: 230px;
+    margin-top: -60px;
+}
+        </style>
+        <div class="header">
+            <div class="sidebar-cart">
+                <div class="cart-header">
+                    <h3>Shopping Cart</h3>
+                    <button class="close-btn" onclick="closeCart()">×</button>
+                </div>
+                <div class="cart-content" id="cart-content">
+                </div>
+                <div class="cart_total_container">
+                    <p>Total:</p>
+                    <span class="cart_total">$0.00</span>
+                    
+                </div><button onclick="checkout()">Go Checkout</button>
+                <button id="clearCartButton" class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+            </div>
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/Logo2.png" width="125px"></a>
+                    </div>
+                    <nav>
+                        <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li> 
+                        <li><a href="Products.html">Products</a></li>
+                        <li><a href="About-Us.html">About</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        </ul>
+                    </nav>
+                    <style>
+                        .cart-icon{
+                            cursor: pointer;
+                        }
+                    </style>
+                    <img src="images/cart.png" width="30px" height="30px" class="cart-icon" onclick="toggleCart()">
+    </div>
+                    <img src="images/menu.png" class="menu-icon" 
+                    onclick= "menutoggle()">
+                </div>
+    </div>
+
+    <!-------- Featured Categories --------->
+
+<div class="categories">
+    <div class="small-container">
+        <div class="row">
+        <div class="col-3">
+            <img src="images/5s.jpg">
+        </div>
+        <div class="col-3">
+            <img src="images/6s.jpg">
+        </div>
+        <div class="col-3">
+            <img src="images/22.jpg">
+        </div>
+    </div>   
+    </div>
+</div>
+
+<!-------- Featured Products --------->
+
+<div class="small-container">
+    <h2 class="tittle">Special Offers</h2>
+    <div class="row">
+        
+        <div class="col-4">
+            <a href="Products Details.html"><img src="images/1.jpg"></a>
+            <h4>Black Coat Natural</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+           <button onclick="addToCart('Black Coat Natural', 29.99, 'images/1.jpg', )">Add to Cart</button>
+        </div>
+        <p>$4̶9̶.9̶9 &nbsp;$29.99</p>
+        </div>
+
+        <div class="col-4">
+            <img src="images/2.jpg">
+            <h4>Black Coat</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+            <button onclick="addToCart('Black Coat', 19.99, 'images/2.jpg')">Add to Cart</button>
+        </div>      
+        <p>$2̶9̶.9̶9 &nbsp;$19.99</p>
+        </div>
+
+        <div class="col-4">
+            <img src="images/3.jpg">
+            <h4>Black Jacket</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+            <button onclick="addToCart('Black Jacket', 19.99, 'images/3.jpg')">Add to Cart</button>
+        </div>
+        <p>$3̶9̶.9̶9 &nbsp;$19.99</p>
+        </div>
+
+        <div class="col-4">
+            <img src="images/4.jpg">
+            <h4>Black pants</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <button onclick="addToCart('Black pants', 29.99, 'images/4.jpg')">Add to Cart</button>
+        </div>
+        <p>$4̶9̶.9̶9 &nbsp;$29.99</p>
+        </div>
+    </div>
+
+    <!---------- Featured Products ----------->
+
+    <h2 class="title">Newly Added Products</h2>
+    <div class="row">
+        <div class="col-4">
+            <img src="images/10.jpg">
+            <h4>Striped Shirt</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+        </div>
+        <p>$99.99</p>
+        </div>
+
+            <div class="col-4">
+                <img src="images/11.jpg">
+                <h4>Black Pants</h4>
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <button onclick="addToCart('Black Pants', 49.99, 'images/11.jpg')">Add to Cart</button>
+            </div>
+            <p>$59.99</p>
+            </div>
+
+                <div class="col-4">
+                    <img src="images/12.jpg">
+                    <h4>Black Jacket</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Black Jacket', 49.99, 'images/12.jpg')">Add to Cart</button>
+                </div>
+                <p>$9.99</p>
+                </div>
+
+                    <div class="col-4">
+                        <img src="images/13.jpg">
+                        <h4>Yellow Striped Trousers</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <button onclick="addToCart('Yellow Striped Trousers', 49.99, 'images/13.jpg')">Add to Cart</button>
+                    </div>
+                    <p>$29.99</p>
+                    </div>
+
+                     <div class="col-4">
+                        <img src="images/14.jpg">
+                        <h4>Blue jeans</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/14.jpg')">Add to Cart</button>
+                    </div>
+                    <p>$9.99</p>
+                    </div>
+
+                    <div class="col-4">
+                        <img src="images/15.jpg">
+                        <h4>Black jacket</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <button onclick="addToCart('Black jacket', 49.99, 'images/15.jpg')">Add to Cart</button>
+                    </div>
+                    <p>$9.99</p>
+                    </div>
+
+                    <div class="col-4">
+                        <img src="images/16.jpg">
+                        <h4>Black Sporty Combination</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <button onclick="addToCart('Black Sporty Combination', 49.99, 'images/16.jpg')">Add to Cart</button>
+                    </div>
+                    <p>$49.99</p>
+                    </div>
+
+                    <div class="col-4">
+                        <img src="images/17.jpg">
+                        <h4>White Sporty Combination</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <button onclick="addToCart('White Sporty Combination', 49.99, 'images/17.jpg')">Add to Cart</button>
+                    </div>
+                    <p>$29.99</p>
+                    </div>
+</div>
+</div>
+
+<!---------- Offer ----------->
+
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class=" col-2">
+            <img src="images/8.png">
+        </div>
+        <div class="col-2">
+            <p>Available exclusively in the Jontix Shop</p>
+            <h1>Black Cotton Coat</h1>
+            <small>It is suitable for all seasons. The soft material will make you feel very comfortable.</small>
+            <br><a href=""class="btn">Buy now &#10148;</a>
+    </div>
+</div>
+</div>
+
+<!-------- Testimonial --------->
+
+<div class="testimonial">
+<div class="small-container">
+    <div class="row">
+        <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>I bought it for my husband and she really liked it.</p>
+            <div class="rating">
+                <br><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <br>
+            <img src="images/user-1.png">
+            <h3>Sean Parker</h3>
+        </div>
+        <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>It is very beautiful, feels very comfortable.</p>
+            <div class="rating">
+                <br><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <br>
+            <img src="images/user-2.png">
+            <h3>Sam Paul</h3>
+        </div>
+        <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>I like it. It's really feel me relax.</p>
+            <div class="rating">
+                <br><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <br>
+            <img src="images/user-3.png">
+            <h3>Alex Maty</h3>
+        </div>
+</div>
+</div>
+
+<!-------- Brands --------->
+
+    <div class="brands">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5">
+                    <img src="images/logo-paypal.png">
+                </div>
+                <div class="col-5">
+                    <img src="images/MasterCard_Logo.svg.png">
+                </div>
+                <div class="col-5">
+                    <img src="images/857_visa.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------- Footer ------------>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                     <h3>Our Location</h3>
+                      <a href="https://maps.app.goo.gl/hVYcjsDwhXhWnwVw5" target="_blank"><p><i class="fa-solid fa-location-dot">&nbsp;</i> Karl-Marx-Straße 134, 12043 Berlin, Germany</p></a>
+                    <div class="app-logo">
+                    </div> 
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/Logo1.png">
+                    <p>The address for everyone who is looking for the difference</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <ul>Refund Policy</ul>
+                        <ul>Join a Partner</ul>
+                    </ul>
+                </div>
+                <div class="footer-col-4">      
+                    <h3>Follow us</h3>
+                    <div class="Links">
+                        <ul>
+                            <li><a href="https://www.instagram.com/jontix.de?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram</p></a></li>
+                            <li><a href="https://www.tiktok.com/@jontix.com?is_from_webapp=1&sender_device=pc" target="_blank"><p><i class="fa-brands fa-tiktok"></i> TikTok</p></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="Copyright"> Copyright 2024 - Jontix</p>
+                </div>
+            </div>
+        </div>
+    
+    <!-------------  Js for toggle menu ------------>
+
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px"
+            }
+        else 
+            {
+                MenuItems.style.maxHeight = "0px"
+            }
+        }
+    </script>
+
+   <!-- Scrool ile ilgili kısım -->  
+
+   <script>
+        var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    var header = document.querySelector(".navbar");
+
+    if (prevScrollpos > currentScrollPos) {
+        header.style.top = "0";
+    } else {
+        header.style.top = "-70px";
+    }
+
+    prevScrollpos = currentScrollPos;
+};
+    </script>
+    <script>
+        $(document).ready(function () {
+            var didScroll;
+            var lastScrollTop = 0;
+            var delta = 5;
+            var navbarHeight = $('.header').outerHeight();
+
+            $(window).scroll(function (event) {
+                didScroll = true;
+            });
+
+            setInterval(function () {
+                if (didScroll) {
+                    hasScrolled();
+                    didScroll = false;
+                }
+            }, 250);
+
+            function hasScrolled() {
+                var st = $(this).scrollTop();
+
+                if (Math.abs(lastScrollTop - st) <= delta)
+                    return;
+
+                if (st > lastScrollTop && st > navbarHeight) {
+                    $('.header').removeClass('header-down').addClass('header-up');
+                } else {
+                    if (st + $(window).height() < $(document).height()) {
+                        $('.header').removeClass('header-up').addClass('header-down');
+                    }
+                }
+
+                lastScrollTop = st;
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            var header = $(".header");
+        
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if (scroll > 50) {
+                    header.addClass("header-shrink");
+                } else {
+                    header.removeClass("header-shrink");
+                }
+            });
+        });
+        </script>
+         <script>
+            let prevScrollPos = window.pageYOffset;
+            window.onscroll = function() {
+                let currentScrollPos = window.pageYOffset;
+                if (prevScrollPos > currentScrollPos) {
+                    document.querySelector(".header").classList.remove("hidden");
+                } else {
+                    document.querySelector(".header").classList.add("hidden");
+                }
+                prevScrollPos = currentScrollPos;
+            }
+        </script>
+        <script>
+          let lastScrollTop = 0;
+        const header = document.getElementById("header");
+
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this,
+                    args = arguments;
+                const later = function() {
+                    timeout = null;
+                    func.apply(context, args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        function hideHeaderOnScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                header.classList.add("hidden");
+            } else {
+                header.classList.remove("hidden");
+            }
+
+            lastScrollTop = scrollTop;
+        }
+        window.addEventListener("scroll", debounce(hideHeaderOnScroll, 50));
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset=" UTF-8">
+        <meta name="viewport" content="width = device-width, initial scale = 1.0">
+        <title> Alle Produkte - Jontix</title>
+        <link rel="stylesheet" href="CSS_File/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="JS_File/ShoppingCart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    </head>
+    <body>  
+        <style>
+            .menu-icon{
+    margin-left: 220px;
+    margin-top: -60px;
+}
+        </style>     
+        <div class="header">
+            <div class="sidebar-cart">
+                <div class="cart-header">
+                    <h3>Shopping Cart</h3>
+                    <button class="close-btn" onclick="closeCart()">×</button>
+                </div>
+                <div class="cart-content" id="cart-content">
+                </div>
+                <div class="cart_total_container">
+                    <p>Total:</p>
+                    <span class="cart_total">$0.00</span>
+                    
+                </div><button onclick="checkout()">Go Checkout</button>
+                <button id="clearCartButton" class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+            </div>
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/Logo2.png" width="125px"></a>
+                    </div>
+                    <nav>
+                        <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li> 
+                        <li><a href="Products.html">Products</a></li>
+                        <li><a href="About-Us.html">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        </ul>
+                    </nav>
+                    <style>
+                        .cart-icon{
+                            cursor: pointer;
+                        }
+                    </style>
+                    <img src="images/cart.png" width="30px" height="30px" class="cart-icon" onclick="toggleCart()">
+    </div>
+                    <img src="images/menu.png" class="menu-icon" 
+                    onclick= "menutoggle()">
+                </div>
+    </div>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/Logo2.png" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li> 
+                        <li><a href="Products.html">Products</a></li>
+                        <li><a href="About-Us.html">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+                <style>
+                    .cart-icon{
+                        cursor: pointer;
+                    }
+                </style>
+                <img src="images/cart.png" width="30px" height="30px" class="cart-icon" onclick="toggleCart()">
+</div>
+                <img src="images/menu.png" class="menu-icon" 
+                onclick= "menutoggle()">
+            </div>
+        </div>
+<div class="small-container">
+    <div class="row row-2">
+        <h2>Alle Produkte</h2>
+        <select>
+            <option> = Default Shorting </option>
+            <option> = Short by Price</option>
+            <option> = Short by Popularity </option>
+            <option> = Short by Rating </option>
+            <option> = Short by Sale </option>
+        </select>
+    </div>
+     <!-- Kategori: Pantolonlar -->
+     <div class="row" id="pantolonlar">
+        <!-- Pantolon ürünleri buraya eklenecek -->
+    </div>
+
+    <!-- Kategori: Gömlekler -->
+    <div class="row" id="gomlekler">
+        <!-- Gömlek ürünleri buraya eklenecek -->
+    </div>
+    <div class="row">
+        
+        <div class="col-4">
+            <img src="images/1.jpg">
+            <h4>Schwarzer Anzug</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+        </div>
+        <p>$49.99</p>
+        </div>
+        <div class="col-4">
+            <img src="images/2.jpg">
+            <h4>Schwarzer Mantel</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+            <button onclick="addToCart('Schwarzer Mantel', 29.99, 'images/2.jpg')">Add to Cart</button>
+        </div>
+        <p>$29.99</p>
+        </div>
+        <div class="col-4">
+            <img src="images/3.jpg">
+            <h4>Schwarze Jacke</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+            <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+        </div>
+        <p>$39.99</p>
+        </div>
+        <div class="col-4">
+            <img src="images/4.jpg">
+            <h4>Schwarze Hosen</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+        </div>
+        <p>$49.99</p>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-4">
+        <img src="images/18.jpg">
+        <h4>Red Printed T-Shirt</h4>
+    <div class="rating">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+    </div>
+    <p>$99.99</p>
+    </div>
+        <div class="col-4">
+            <img src="images/21.jpg">
+            <h4>Red Printed T-Shirt</h4>
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+        </div>
+        <p>$59.99</p>
+        </div>
+            <div class="col-4">
+                <img src="images/23.jpg">
+                <h4>Red Printed T-Shirt</h4>
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+            </div>
+            <p>$9.99</p>
+            </div>
+                <div class="col-4">
+                    <img src="images/13.jpg">
+                    <h4>Red Printed T-Shirt</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$29.99</p>
+                </div>
+                 <div class="col-4">
+                    <img src="images/14.jpg">
+                    <h4>Red Printed T-Shirt</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$9.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/10.jpg">
+                    <h4>Gestreiftes Hemd</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$9.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/11.jpg">
+                    <h4>Schwarze Hosen</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/12.jpg">
+                    <h4>Schwarze Jacke</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$29.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/13.jpg">
+                    <h4>Gelb gestreifte Hose</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/14.jpg">
+                    <h4>Blaue Jeans</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/15.jpg">
+                    <h4>Schwarze Jacke</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/16.jpg">
+                    <h4>Schwarzes Sportteam</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/17.jpg">
+                    <h4>Weiße Sportmannschaft</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/18.jpg">
+                    <h4>Schwarzer Mantel</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/19.jpg">
+                    <h4>Schwarzer Strickpullover</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/20.jpg">
+                    <h4>Weißer Strickpullover</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <button onclick="addToCart('Striped Shirt', 49.99, 'images/10.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+                <div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div><div class="col-4">
+                    <img src="images/1.jpg">
+                    <h4>Schwarzer Anzug</h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <button onclick="addToCart('Schwarzer Anzug', 49.99, 'images/1.jpg')">Add to Cart</button>
+                </div>
+                <p>$49.99</p>
+                </div>
+
+    </div>
+    <div class="page-btn">
+        <span><a href="Products.html">1</a></span>
+        <span><a href="Page2.html">2</a></span>
+        <span><a href="">3</a></span>
+        <span><a href="">4</a></span>
+        <span><a href="">5</a></span>
+        <span><a href="">6</a></span>
+        <span><a href="">7</a></span>
+        <span><a href="">8</a></span>
+        <span><a href="">9</a></span>
+        <span><a href="">10</a></span>
+        <span>...</span>
+    </div>
+</div>
+
+    <!---------- Footer ------------>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                     <h3>Our Location</h3>
+                      <a href="https://maps.app.goo.gl/hVYcjsDwhXhWnwVw5" target="_blank"><p><i class="fa-solid fa-location-dot">&nbsp;</i> Karl-Marx-Straße 134, 12043 Berlin, Germany</p></a>
+                    <div class="app-logo">
+                    </div> 
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/Logo1.png">
+                    <p>The address for everyone who is looking for the difference</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <ul>Refund Policy</ul>
+                        <ul>Join a Partner</ul>
+                    </ul>
+                </div>
+                <div class="footer-col-4">      
+                    <h3>Follow us</h3>
+                    <div class="Links">
+                        <ul>              
+                            <ul></ul><a href="https://www.instagram.com/jontix.de?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram</p></a>
+                            <ul></ul><a href="https://www.tiktok.com/@jontix.com?is_from_webapp=1&sender_device=pc" target="_blank"><p><i class="fa-brands fa-tiktok"></i> TikTok</p></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="Copyright"> Copyright 2024 - Jontix</p>
+                </div>
+            </div>
+        </div>
+
+    <!-------------  Js for Toggle Menu ------------>
+
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px"
+            }
+        else 
+            {
+                MenuItems.style.maxHeight = "0px"
+            }
+        }
+    </script>
+    <script>document.addEventListener("DOMContentLoaded", function () {
+        var container = document.querySelector(".container");
+        var lastScrollTop = 0;
+    
+        window.addEventListener("scroll", function () {
+            var scrollTop = window.scrollY;
+    
+            if (scrollTop > lastScrollTop) {
+                // Kullanıcı aşağı kaydırıyorsa container'ı gizle
+                container.style.transform = "translateY(-100%)";
+            } else {
+                // Kullanıcı yukarı çıkıyorsa container'ı göster
+                container.style.transform = "translateY(0)";
+            }    
+            lastScrollTop = scrollTop;
+        });
+    });</script>
+    <script>
+        $(document).ready(function () {
+            var didScroll;
+            var lastScrollTop = 0;
+            var delta = 5;
+            var navbarHeight = $('.header').outerHeight();
+
+            $(window).scroll(function (event) {
+                didScroll = true;
+            });
+
+            setInterval(function () {
+                if (didScroll) {
+                    hasScrolled();
+                    didScroll = false;
+                }
+            }, 250);
+
+            function hasScrolled() {
+                var st = $(this).scrollTop();
+
+                if (Math.abs(lastScrollTop - st) <= delta)
+                    return;
+
+                if (st > lastScrollTop && st > navbarHeight) {
+                    $('.header').removeClass('header-down').addClass('header-up');
+                } else {
+                    if (st + $(window).height() < $(document).height()) {
+                        $('.header').removeClass('header-up').addClass('header-down');
+                    }
+                }
+
+                lastScrollTop = st;
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            var header = $(".header");
+        
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if (scroll > 50) {
+                    header.addClass("header-shrink");
+                } else {
+                    header.removeClass("header-shrink");
+                }
+            });
+        });
+        </script>
+         <script>
+            let prevScrollPos = window.pageYOffset;
+            window.onscroll = function() {
+                let currentScrollPos = window.pageYOffset;
+                if (prevScrollPos > currentScrollPos) {
+                    document.querySelector(".header").classList.remove("hidden");
+                } else {
+                    document.querySelector(".header").classList.add("hidden");
+                }
+                prevScrollPos = currentScrollPos;
+            }
+        </script>
+        <script>
+          let lastScrollTop = 0;
+        const header = document.getElementById("header");
+
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this,
+                    args = arguments;
+                const later = function() {
+                    timeout = null;
+                    func.apply(context, args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        function hideHeaderOnScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                header.classList.add("hidden");
+            } else {
+                header.classList.remove("hidden");
+            }
+
+            lastScrollTop = scrollTop;
+        }
+        window.addEventListener("scroll", debounce(hideHeaderOnScroll, 50));
+        </script>
+    </body>
+    </html>

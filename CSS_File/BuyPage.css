@@ -1,0 +1,143 @@
+/* Örnek olarak ürün resimlerini küçültme */
+.cart_item img {
+    max-width: 50px; /* veya istediğiniz bir genişlik değeri */
+    height: auto;
+}
+
+/* Örnek olarak ürün detaylarını düzenleme */
+.cart_item_details {
+    margin-left: 10px; /* veya istediğiniz bir kenar boşluğu değeri */
+}
+
+/* Örnek olarak ürün adını ve adeti düzenleme */
+.cart_item_details p {
+    margin: 0; /* Paragrafın kenar boşluğunu sıfırla */
+}
+
+/* Örnek olarak toplam tutarı güncelleme */
+.cart_total {
+    font-size: 16px; /* veya istediğiniz bir font büyüklüğü */
+}
+body {
+    font-family: 'Roboto', sans-serif; /* Örnek bir font kullanabilirsiniz */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Sayfa arkaplan rengi */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Navbar stil */
+.navbar {
+    background-color: #333;
+    padding: 15px 0;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+/* Ürünlerin düzenlenmesi */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.col-4 {
+    flex: 25%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.col-4 img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Sepet içeriği düzenleme */
+.cart_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.cart_item img {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.cart_item_details {
+    flex: 1;
+}
+
+.cart_item_details p {
+    margin: 5px 0;
+}
+
+/* Sepet toplam düzenleme */
+.cart_total_container {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart_total {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+.payment-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #ff523b;
+    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #000000;
+}
